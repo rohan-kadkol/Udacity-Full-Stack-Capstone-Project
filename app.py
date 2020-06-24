@@ -1,35 +1,12 @@
-import os
 from flask import Flask, request, abort, jsonify
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from models import Project, Volunteer
 from flask_migrate import Migrate
 from auth.auth import AuthError, requires_auth
-# from .config import app, setup_db, TEST_SQLALCHEMY_DATABASE_URI
 from config import app, db
-
-# app.config.from_object('config')
-
-# app = Flask(__name__)
-# CORS(app)
-# db = setup_db(app)
-
-# if __name__ == '__main__':
-#     from .config import app, db
-#     CORS(app)
-#     migrate = Migrate(app, db)
-# else:
-#     from .config import app, setup_db, TEST_SQLALCHEMY_DATABASE_URI
-#     db = setup_db(app, TEST_SQLALCHEMY_DATABASE_URI)
-
-# if __name__ == '__main__':
-#     db = setup_db(app)
-# else:
-#     db = setup_db(app, TEST_SQLALCHEMY_DATABASE_URI)
 
 CORS(app)
 migrate = Migrate(app, db)
-# db.create_all()
 
 RESULTS_PER_PAGE = 10
 

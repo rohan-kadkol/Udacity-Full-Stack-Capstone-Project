@@ -1,5 +1,5 @@
 import json
-from flask import request, abort, jsonify
+from flask import request
 from urllib.request import urlopen
 from functools import wraps
 from jose import jwt
@@ -86,7 +86,8 @@ def verify_decode_jwt(token):
         except jwt.JWTClaimsError:
             raise AuthError({
                 'code': 'invalid_claims',
-                'description': 'Incorrect claims. Please check the audience & issuer.'
+                'description': 'Incorrect claims. Please check the audience &'
+                               ' issuer.'
             }, 401)
         except Exception:
             raise AuthError({
@@ -103,22 +104,10 @@ def requires_auth(permission=''):
     def requires_auth_decorator(f):
         @wraps(f)
         def wrapper(*args, **kwargs):
-            # try:
             token = get_token_auth_header()
             payload = verify_decode_jwt(token)
             check_permissions(permission, payload)
             return f(payload, *args, **kwargs)
-            # except AuthError as ex:
-            #     print('1**')
-            #     abort(423)
-            #     return jsonify({
-            #         'success': False,
-            #         'error': ex.status_code,
-            #         'message': ex.error['description']
-            #     }), 422
-            # except Exception as e:
-            #     print(e)
-            #     abort(422)
 
         return wrapper
 

@@ -1,14 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_cors import CORS
 import os
-
-# TODO: Modify it to match your database
-# SQLALCHEMY_DATABASE_URI = 'postgres://{}:{}@{}/{}'.format(
-#     'postgres', 'password', 'localhost:5432', 'capstone_db')
 
 SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
 if not SQLALCHEMY_DATABASE_URI:
+    # TODO: Modify it to match your database
     SQLALCHEMY_DATABASE_URI = 'postgres://{}:{}@{}/{}'.format(
         'postgres', 'password', 'localhost:5432', 'capstone_db')
 
@@ -19,24 +15,6 @@ def setup_db(app, database_path=SQLALCHEMY_DATABASE_URI):
     db = SQLAlchemy(app)
     return db
 
+
 app = Flask('app')
 db = setup_db(app)
-
-# from flask_sqlalchemy import SQLAlchemy
-# from flask import Flask
-#
-# import os
-# SECRET_KEY = os.urandom(32)
-# # Grabs the folder where the script runs.
-# basedir = os.path.abspath(os.path.dirname(__file__))
-#
-# # Enable debug mode.
-# DEBUG = True
-#
-# # Connect to the database
-# app = Flask('app')
-# db = SQLAlchemy(app)
-#
-# # TODO IMPLEMENT DATABASE URL
-# # SQLALCHEMY_DATABASE_URI = 'postgres://postgres:Ropac123@localhost:5432/fyyurapp'
-# SQLALCHEMY_DATABASE_URI = 'postgres://{}:{}@{}/{}'.format('postgres', 'Ropac123', 'localhost:5432', 'capstone_db')

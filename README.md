@@ -35,7 +35,13 @@ pip install -r requirements.txt
 
 ## Starting the Project Server
 
-### Backend
+### Hosted app (on Heroku)
+
+App hosted on Heroku can be found on the below link: 
+
+https://capstone-project-fsnd.herokuapp.com/
+
+### Backend (Local)
 
 First, create a postgres database named (eg. _**"capstone_db"**_).
 Then change the ```SQLALCHEMY_DATABASE_URI``` variable in ```starter/config.py``` to reflect your database's URI.
@@ -55,7 +61,7 @@ export FLASK_APP=starter/app.py
 flask run
 ```
 
-### Testing
+### Testing (Local)
 
 First, create a postgres database named (eg. _**"capstone_db_test"**_).
 Then change the ```SQLALCHEMY_DATABASE_URI``` variable in ```starter/test_app.py``` to reflect your test database's URI.
@@ -73,6 +79,22 @@ Be sure you're in your python virtual environment before doing this.
 ```bash
 python -m starter.test_app
 ```
+
+#### Testing method structure
+
+Each test method has a two letter code in its name. For example, ```test_aa_get_projects_manager``` has the two letter 
+code of ```aa```.
+
+1. The first letter specifies the set of tests:
+    + a: Success with Volunteer Manager's JWT
+    + b: Error with Volunteer Manager's JWT
+    + c: Success with Volunteer Coordinator's JWT
+    
+2. The second letter species the test number within that set:
+    + a: First test
+    + b: Second test
+    + and so on ... 
+
 
 ## RBAC controls
 

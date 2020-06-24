@@ -14,12 +14,41 @@ def setup_db(app, database_path):
     db.create_all()
 
 
-JWT_MANAGER = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlpNV3BPSWRVdmJVUmN1a0NkRDBiViJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1wcm9qZWN0LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZTUzNmNhNzcxYjI1MGI3NzE2NzU5MSIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNTkyOTI1OTU1LCJleHAiOjE1OTMwMTIzNTUsImF6cCI6IjBYWlc1OTlaR25TRVcyN1E1Zzc0cnEzRFZReE9yb1U5Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6cHJvamVjdHMiLCJkZWxldGU6dm9sdW50ZWVycyIsImdldDpwcm9qZWN0cyIsImdldDp2b2x1bnRlZXJzIiwicGF0Y2g6cHJvamVjdHMiLCJwYXRjaDp2b2x1bnRlZXJzIiwicG9zdDpwcm9qZWN0cyIsInBvc3Q6dm9sdW50ZWVycyJdfQ.003VO2_cEEN41NKuP_vsC1CPkT9e-I_Tsc-vK1QNNhgReCr6cE3sRSry1URpUENoHR2N4uOJ9mrkt3mfNlNscZVH8EOPNAKwEGuqJqtZ-kXCidI4gPKu-b8kqJctFjG2PVcNwQA53ypnE6jzBe3ht8hpQHIK3jYb2QHoT-dgp3N14s92CInoKQmwCgCKVKtMt4Vx2XbjP6jUQ9TKArSx8np9hGmr5O5YHamNrGynvSFKGmR2OYFEN0BV9Nv2vIg2ffIbiBPLS170EXDAZ-gaxlBMd20LYxOFirMn_5sq8oKyBbUroYmtg0Yeo9-X6GoX44sZyPSrc3qRXTNCLC7f_g'
+JWT_MANAGER = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlpNV3BPSWRVdmJVU' \
+              'mN1a0NkRDBiViJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1wcm9qZWN0LWZzb' \
+              'mQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjI0MzY3NTVlZWYyMD' \
+              'AxOTJmNTgwOSIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNTkyOTYyNDE4LCJ' \
+              'leHAiOjE1OTMwNDg4MTgsImF6cCI6IjBYWlc1OTlaR25TRVcyN1E1Zzc0cnEz' \
+              'RFZReE9yb1U5Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6c' \
+              'HJvamVjdHMiLCJkZWxldGU6dm9sdW50ZWVycyIsImdldDpwcm9qZWN0cyIsIm' \
+              'dldDp2b2x1bnRlZXJzIiwicGF0Y2g6cHJvamVjdHMiLCJwYXRjaDp2b2x1bnR' \
+              'lZXJzIiwicG9zdDpwcm9qZWN0cyIsInBvc3Q6dm9sdW50ZWVycyJdfQ.tQC2f' \
+              'GeQlhVZp9VRs5Cc7UhCTEQM9UaPpogz3dtkCY-EjE8ewi4rq77y5HC2kZxBbc' \
+              '4KrDPRG2bRuffHxfajHb_1rlWbBxaRr4vZ_Ap3Ze80GyXI5jEHJonhqnSV8jV' \
+              '76O8c7hGUt5R3EHgizPbhuV_7ZmoZIA4Wf0NORh8dnaFU4IPdnEG6Sfy2Z3AD' \
+              'FCofLv_TBr7g3HmufNXIvrA2pyiWI8Vvd8o5lvN1V8QNQSYyJwnL5lns6VNHr' \
+              'xQLgUqiK-OpXgT9vIeA9m7Akv_O9mE3uXPP5mTisOMVdMkPD8CTibD4dQ4BFp' \
+              'fJsXrGX2vgkr_eJxeuZavocv1zRJhcOg'
 
-JWT_COORDINATOR = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlpNV3BPSWRVdmJVUmN1a0NkRDBiViJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1wcm9qZWN0LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZTU4YTRkMjlhNWJhMGI2ZjU1ZmVmYyIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNTkyOTI2MDcwLCJleHAiOjE1OTMwMTI0NzAsImF6cCI6IjBYWlc1OTlaR25TRVcyN1E1Zzc0cnEzRFZReE9yb1U5Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6dm9sdW50ZWVycyIsImdldDpwcm9qZWN0cyIsImdldDp2b2x1bnRlZXJzIiwicGF0Y2g6dm9sdW50ZWVycyIsInBvc3Q6dm9sdW50ZWVycyJdfQ.vp9Hz1f0jR77bhwfELxA8XJ5gHZ2GAjW0NjJpJDr78Bhw3giUbgM7VKisXUlhD2-xLadCTW2zlWsWCauk2ZTf0BbFvbJm-zGuqEo5tTEAwtYNA1ZUAxmYdhi6QglkW4yAIna-Wpoloh5IBKq1POYH4dbut4MBakI5XpHGOmjlHwHhNM4YlUwTw2cwNzwoeaiyLp1rkEdqfzJlxY5HYok5AwmB0XWndJb7ylPpLFdvIrcCGLEz2OlLJ7bp1Lq6xVA5YJY5wYy_9KHRUhnE25vHvSCwN-G715wXDtJ7g-CX6HyCqEOzxqfBfjWleF5GwZHoCNZmxo1SBNzIcKUIVbC1w'
+JWT_COORDINATOR = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlpNV3BPSWRVd' \
+                  'mJVUmN1a0NkRDBiViJ9.eyJpc3MiOiJodHRwczovL2NvZmZlZS1wcm9qZ' \
+                  'WN0LWZzbmQudXMuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlZjI0M2' \
+                  'IxYTU1YzE2MDAxMzRlMTU5ZCIsImF1ZCI6ImNhcHN0b25lIiwiaWF0Ijo' \
+                  'xNTkyOTYyODQwLCJleHAiOjE1OTMwNDkyNDAsImF6cCI6IjBYWlc1OTla' \
+                  'R25TRVcyN1E1Zzc0cnEzRFZReE9yb1U5Iiwic2NvcGUiOiIiLCJwZXJta' \
+                  'XNzaW9ucyI6WyJkZWxldGU6dm9sdW50ZWVycyIsImdldDpwcm9qZWN0cy' \
+                  'IsImdldDp2b2x1bnRlZXJzIiwicGF0Y2g6dm9sdW50ZWVycyIsInBvc3Q' \
+                  '6dm9sdW50ZWVycyJdfQ.nP4y3BSHKT-i0dSD0E-k0N-s0Iam1CmwFByQc' \
+                  'xt_IN3bRUa3Jl3iSvH0fQ1tmWkQD_5O85C69wm2CCGwXojsGn6DyMfDjL' \
+                  'F1hzITAlNXOpPcHpiLd2DNHOgLt7YwvRGyWmBJZWk-VE6i5FoViNDRZ4t' \
+                  '_-mmtAnPqJFHOxJs1WNPLLfZxLNzQlmGjGwbUTxQzjbM6wTHS_K_KYZQV' \
+                  '9HQgsCCMuWTSOZtFBQjA_MOrsn7vIm9B96eLlDgeLOAiUkas8D1UvTZfH' \
+                  'O5YIJoeK55OP27Fa7eOllhMYP_4RmvtFWTgJnChhYavOp9ula65RDy6C1' \
+                  'm6WNp4PoFw9er-WzUU0g'
 
+# TODO: Modify it to match your database
 SQLALCHEMY_DATABASE_URI = 'postgres://{}:{}@{}/{}'.format(
-            'postgres', 'password', 'localhost:5432', 'capstone_db_test')
+    'postgres', 'password', 'localhost:5432', 'capstone_db_test')
 
 
 class VolunteerTestCase(unittest.TestCase):
@@ -123,10 +152,10 @@ class VolunteerTestCase(unittest.TestCase):
         self.assertIsNotNone(data.get('project', None))
 
     def test_af_patch_volunteers_manager(self):
-        res = self.client().patch(f'/volunteers/{inserted_volunteer_id}',
-                                  headers={
-                                      'Authorization': f'Bearer {JWT_MANAGER}'},
-                                  json=self.modified_volunteer)
+        res = self.client() \
+            .patch(f'/volunteers/{inserted_volunteer_id}',
+                   headers={'Authorization': f'Bearer {JWT_MANAGER}'},
+                   json=self.modified_volunteer)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -134,9 +163,9 @@ class VolunteerTestCase(unittest.TestCase):
         self.assertIsNotNone(data.get('volunteer', None))
 
     def test_ag_delete_projects_manager(self):
-        res = self.client().delete(f'/projects/{inserted_project_id}',
-                                   headers={
-                                       'Authorization': f'Bearer {JWT_MANAGER}'})
+        res = self.client() \
+            .delete(f'/projects/{inserted_project_id}',
+                    headers={'Authorization': f'Bearer {JWT_MANAGER}'})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -144,9 +173,9 @@ class VolunteerTestCase(unittest.TestCase):
         self.assertIsNotNone(data.get('project', None))
 
     def test_ah_delete_volunteers_manager(self):
-        res = self.client().delete(f'/volunteers/{inserted_volunteer_id}',
-                                   headers={
-                                       'Authorization': f'Bearer {JWT_MANAGER}'})
+        res = self.client() \
+            .delete(f'/volunteers/{inserted_volunteer_id}',
+                    headers={'Authorization': f'Bearer {JWT_MANAGER}'})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -293,10 +322,10 @@ class VolunteerTestCase(unittest.TestCase):
         self.assertIsNone(data.get('project', None))
 
     def test_cf_patch_volunteers_coordinator(self):
-        res = self.client().patch(f'/volunteers/{inserted_volunteer_id}',
-                                  headers={
-                                      'Authorization': f'Bearer {JWT_COORDINATOR}'},
-                                  json=self.modified_volunteer)
+        res = self.client() \
+            .patch(f'/volunteers/{inserted_volunteer_id}',
+                   headers={'Authorization': f'Bearer {JWT_COORDINATOR}'},
+                   json=self.modified_volunteer)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
@@ -315,9 +344,9 @@ class VolunteerTestCase(unittest.TestCase):
         self.assertIsNone(data.get('project', None))
 
     def test_ch_delete_volunteers_coordinator(self):
-        res = self.client().delete(f'/volunteers/{inserted_volunteer_id}',
-                                   headers={
-                                       'Authorization': f'Bearer {JWT_COORDINATOR}'})
+        res = self.client()\
+            .delete(f'/volunteers/{inserted_volunteer_id}',
+                    headers={'Authorization': f'Bearer {JWT_COORDINATOR}'})
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
